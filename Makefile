@@ -6,15 +6,15 @@
 #    By: amarandi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 14:27:59 by amarandi          #+#    #+#              #
-#    Updated: 2017/12/19 21:38:10 by amarandi         ###   ########.fr        #
+#    Updated: 2017/12/27 14:54:59 by amarandi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = puissance4
+NAME = dropeer
 CC = gcc
-LDLIBS = -lft
-LDFLAGS = -Llibft
-CPPFLAGS = -Iincludes
+LDLIBS =  -lft
+LDFLAGS = -L ./libft
+CPPFLAGS = -I ./includes
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_PATH = src
@@ -33,21 +33,19 @@ OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(LDFLAGS) $(LDLIBS) $^ -o $@
+	@$(CC) $(LDFLAGS) $(LDLIBS) $^ -o $@
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
-	make -C libft
+	@make -C libft
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-	rm -fv $(OBJ)
+	@rm -f $(OBJ)
 	@rmdir $(OBJ_PATH) 2> /dev/null || true
-	make -C libft clean
 
 fclean: clean
-	rm -fv $(NAME)
-	make -C libft fclean
+	@rm -f $(NAME)
 
 re: fclean all
 

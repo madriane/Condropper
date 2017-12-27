@@ -6,7 +6,7 @@
 /*   By: kyazdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 13:51:41 by kyazdani          #+#    #+#             */
-/*   Updated: 2017/12/19 20:33:08 by amarandi         ###   ########.fr       */
+/*   Updated: 2017/12/27 14:56:46 by amarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,9 @@ int				main(int ac, char **av)
 		if (buff[0] == '1')
 			replay(map, p_easy);
 		else if (buff[0] == '2')
-			replay(map, p_med);
+			replay(map, p_easy);
 		else if (buff[0] == '3')
-			replay(map, p_hard2);
+			replay(map, p_easy);
 		else
 			ft_putstr("This difficulty does not exist. Try again please! ^^\n");
 	}
